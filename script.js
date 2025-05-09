@@ -1,85 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Image Slider Logic
+  // —— SLIDER ——
   let currentSlide = 0;
-  const slides = document.querySelector(".slides");
+  const slidesEl = document.querySelector(".slides");
   const totalSlides = document.querySelectorAll(".slide").length;
 
-  // Function to update the slide position
-  function updateSlidePosition() {
-    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+  function updateSlide() {
+    slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
   }
-
-  // Next slide function
-  window.nextSlide = function () {
+  window.nextSlide = () => {
     currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlidePosition();
+    updateSlide();
   };
-
-  // Previous slide function
-  window.prevSlide = function () {
+  window.prevSlide = () => {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
+    updateSlide();
   };
+  updateSlide();
 
-  updateSlidePosition();
-
-  // Mobile Menu Toggle
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav-links');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('show');
-    });
-  }
-
-  // Function to change the hero image to the third image (index 2 -> 3.png)
-  function changeHeroImage() {
-    currentSlide = 2;  // Set to the third slide (index 2)
-    updateSlidePosition();  // Update the slide position immediately
-  }
-
-  // Event listener for the "Locations" link
-  const locationsLink = document.getElementById('locations-link');  // Specific targeting of Locations link
-  if (locationsLink) {
-    locationsLink.addEventListener('click', (event) => {
-      event.preventDefault();  // Prevent default link behavior (it won't navigate)
-      changeHeroImage();  // Change the hero image to the third slide (3.png)
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-  const homeLink = document.getElementById('home-link');
-if (homeLink) {
-  homeLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    currentSlide = 0; // First slide (1.png)
-    updateSlidePosition();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // —— MENU TOGGLE ——
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
   });
-}
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Existing slider code...
+  // —— SCROLL TO SERVICES ——
+  document.getElementById("services-link").addEventListener("click", e => {
+    e.preventDefault();
+    document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+    navLinks.classList.remove("show");
+  });
 
-  // Modal code
+  // —— HOME LINK (slide 1) ——
+  document.getElementById("home-link").addEventListener("click", e => {
+    e.preventDefault();
+    currentSlide = 0; updateSlide();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navLinks.classList.remove("show");
+  });
+
+  // —— LOCATIONS LINK (slide 3) ——
+  document.getElementById("locations-link").addEventListener("click", e => {
+    e.preventDefault();
+    currentSlide = 2; updateSlide();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navLinks.classList.remove("show");
+  });
+
+  // —— CONTACT MODAL ——
   const modal = document.getElementById("contact-modal");
-  const openBtn = document.getElementById("open-contact-modal");
-  const closeBtn = document.querySelector(".close-button");
+  const openModalBtn = document.getElementById("open-contact-modal");
+  const closeModalBtn = document.querySelector(".close-button");
 
-  openBtn.addEventListener("click", (e) => {
+  openModalBtn.addEventListener("click", e => {
     e.preventDefault();
     modal.style.display = "block";
+    navLinks.classList.remove("show");
   });
-
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target == modal) {
-      modal.style.display = "none";
-    }
+  closeModalBtn.addEventListener("click", () => (modal.style.display = "none"));
+  window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
   });
 });
-
