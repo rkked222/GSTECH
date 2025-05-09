@@ -4,65 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Solutions Co.</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Your stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<script src="script.js"></script>
-
 <body>
+
   <header>
     <div class="logo-title">
-      <img src="logo.png" class="logo" alt="Logo">
+      <img src="logo.png" class="logo" alt="Logo" />
     </div>
-  
+
     <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-  
+
     <nav class="nav-links">
       <a href="#" id="home-link">Home</a>
-      <a href="#" id="locations-link">Locations</a> <!-- Unique id for Locations link -->
+      <a href="#" id="locations-link">Locations</a>
       <a href="#services" id="services-link">Services</a>
       <a href="#" id="open-contact-modal">Contact</a>
-    </nav>   
+    </nav>
   </header>
-  
 
   <div class="slider">
     <div class="slides">
-      <img src="1.png" alt="Banner 1" class="slide" />
-      <img src="2.png" alt="Banner 2" class="slide" />
-      <img src="3.png" alt="Banner 3" class="slide" />
+      <img src="1.png" alt="Banner 1" class="slide" />
+      <img src="2.png" alt="Banner 2" class="slide" />
+      <img src="3.png" alt="Banner 3" class="slide" />
     </div>
     <button class="prev" onclick="prevSlide()">❮</button>
     <button class="next" onclick="nextSlide()">❯</button>
-  </div>  
+  </div>
+
   <section class="section" id="services">
     <h2>Our Services</h2>
     <div class="service">
-      <h3>Fiber Internet and CCTV Installation</h3>
-      <p>We specialize in the installation of high-speed fiber internet and advanced CCTV systems to enhance your connectivity and security.</p>
-    </div>    
+      <h3>Fiber Internet &amp; CCTV Installation</h3>
+      <p>We specialize in high‑speed fiber internet and advanced CCTV to boost your connectivity and security.</p>
     </div>
   </section>
+
   <section class="section" id="contact">
     <h2>Contact Us</h2>
-    <p>
-      <i class="fas fa-envelope"></i>
-      <a href="mailto:gstechsolution@yahoo.com">gstechsolution@yahoo.com</a>
-    </p>
-    <p>
-      <i class="fas fa-phone"></i>
-      <a href="tel:+639173274474">+(63) 917 327 4474</a>
-    </p>
-    <p>
-      <i class="fab fa-facebook"></i>
-      <a href="https://www.facebook.com/GSTechDasmaAdmin/" target="_blank">GSTech Network and Data Solution </a>
-    </p>
+    <p><i class="fas fa-envelope"></i><a href="mailto:gstechsolution@yahoo.com">gstechsolution@yahoo.com</a></p>
+    <p><i class="fas fa-phone"></i><a href="tel:+639173274474">+(63) 917 327 4474</a></p>
+    <p><i class="fab fa-facebook"></i><a href="https://www.facebook.com/GSTechDasmaAdmin/" target="_blank">GSTech Network and Data Solution</a></p>
   </section>
-  
+
   <footer>
-    &copy; 2025 Data Solutions Co. All rights reserved.
+    &copy; 2025 Data Solutions Co. All rights reserved.
   </footer>
 
+  <!-- Contact Modal -->
   <div id="contact-modal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
@@ -73,9 +67,10 @@
         <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send</button>
       </form>
-      
     </div>
   </div>
-  
+
+  <!-- Your script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
