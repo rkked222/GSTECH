@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 1.6vw; /* scalable base font size */
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 5vw; /* scales with screen width */
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* Existing styles */
+
+nav a {
+  color: rgb(41, 38, 38);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3vw;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+nav a:hover {
+  color: #fff; /* Change text color */
+  background-color: rgb(10, 21, 180); /* Add background color on hover */
+  border-radius: 4px; /* Add subtle rounded corners */
+  transform: translateY(-3px); /* Lift the button a little for effect */
+}
+
+nav a:active {
+  transform: translateY(0); /* Reset when clicked */
+  background-color: rgb(5, 10, 90); /* Darken background on active state */
+}
+
+
+/* Hero section */
+.hero {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 2732 / 1536;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  object-fit: cover; /* Ensure the image fills the space */
+}
+
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+button.prev {
+  left: 1rem;
+}
+
+button.next {
+  right: 1rem;
+}
+
+/* Content section */
+.section {
+  padding: 2.5rem 1.5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2.5vw;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.service {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service h3 {
+  font-size: 1.8vw;
+  margin-bottom: 0.5rem;
+}
+#contact i {
+  margin-right: 0.5rem;
+  color: #5361ad;
+}
+#contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: #5361ad;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 1.2vw;
+}
+/* Modal base styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* Close (X) button */
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Form styling */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  background-color: #5361ad;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Media Queries for Small Devices */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+  .logo {
+    height: 10vw; /* scales with screen width */
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  header {
+    align-items: flex-start;
+    position: relative;
+  }
+}
+
